@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Quest Tactics</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark">🎯</div>
+          <div>
+            <h1>Quiz Quest <span>Tactics</span></h1>
+          </div>
+        </div>
+
+        <div class="topbar-stats">
+          <div class="stat-pill">
+            <span class="label">Gold</span>
+            <strong id="gold-count">0</strong>
+          </div>
+          <div class="stat-pill">
+            <span class="label">Gems</span>
+            <strong id="gem-count">0</strong>
+          </div>
+          <button id="settings-button" class="icon-button" type="button">⚙️</button>
+        </div>
+      </header>
+
+      <main class="main-panel">
+        <section id="login-screen" class="screen active">
+          <div class="auth-card">
+            <div class="auth-badge">⚔️</div>
+            <h2>Enter the Arena</h2>
+            <p>Knowledge and tactics decide the outcome.</p>
+
+            <label class="field-label" for="player-name">Commander Name</label>
+            <input id="player-name" type="text" placeholder="Enter commander name..." maxlength="24" />
+
+            <button id="start-login" class="primary-button" type="button">Deploy</button>
+          </div>
+        </section>
+
+        <section id="menu-screen" class="screen">
+          <div class="profile-banner">
+            <div class="avatar">👤</div>
+            <div class="profile-copy">
+              <h2 id="profile-name">Commander</h2>
+              <div class="profile-meta">
+                <span class="wins">0 Wins</span>
+                <span class="losses">0 Losses</span>
+              </div>
+            </div>
+            <div class="xp-panel">
+              <div class="xp-row">
+                <span>Experience</span>
+                <strong id="xp-text">0 / 100</strong>
+              </div>
+              <div class="xp-bar">
+                <span id="xp-fill"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mode-panel">
+            <h3>Operations</h3>
+            <div class="operation-grid">
+              <button id="launch-battle" class="operation-card primary" type="button">
+                <span class="icon">🗺️</span>
+                <strong>Tactical Campaign</strong>
+                <small>Battle enemy units and answer quiz questions to win.</small>
+              </button>
+
+              <button class="operation-card locked" type="button" disabled>
+                <span class="icon">🔒</span>
+                <strong>PVP Arena</strong>
+                <small>Unlocks at Commander Level 5.</small>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section id="game-screen" class="screen">
+          <div id="phase-banner" class="phase-banner hidden"></div>
+
+          <div class="game-topbar">
+            <button id="retreat-button" class="text-button" type="button">← Retreat</button>
+
+            <div class="phase-status">
+              <span id="phase-label" class="phase-tag">PLAYER TURN</span>
+              <div class="weapon-legend">
+                <span>⚔️ Sword beats Axe</span>
+                <span>🪓 Axe beats Lance</span>
+                <span>🔱 Lance beats Sword</span>
+              </div>
+            </div>
+
+            <button id="end-turn-button" class="danger-button hidden" type="button">End Turn</button>
+          </div>
+
+          <div class="battle-layout">
+            <div class="board-panel">
+              <div id="battle-grid" class="battle-grid"></div>
+              <div class="battle-log" id="battle-log"></div>
+            </div>
+
+            <div class="combat-panel">
+              <div id="question-panel" class="question-panel">
+                <div class="question-header">
+                  <span id="question-difficulty">Medium</span>
+                  <span id="combat-timer">15s</span>
+                </div>
+                <h3 id="question-text">Question</h3>
+                <div id="answer-area" class="answer-area"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="game-over-screen" class="screen">
+          <div class="result-card">
+            <h2 id="result-title">Battle Complete</h2>
+            <p id="result-message">Outcome</p>
+            <button id="play-again" class="primary-button" type="button">Play Again</button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="settings-dialog" class="settings-dialog hidden">
+      <div class="settings-card">
+        <h3>Settings</h3>
+        <label class="toggle-row">
+          <span>Sound effects</span>
+          <input id="sfx-toggle" type="checkbox" checked />
+        </label>
+        <label class="volume-row">
+          <span>Volume</span>
+          <input id="volume-slider" type="range" min="0" max="1" step="0.05" value="0.5" />
+        </label>
+        <button id="close-settings" class="secondary-button" type="button">Close</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
